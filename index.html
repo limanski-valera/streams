@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Streams</title>
+		<link rel="stylesheet" href="css/output.css" />
+		<link rel="stylesheet" href="css/icons.css" />
+	</head>
+	<body class="text-textPrimary min-w-[24.375rem] bg-bgPrimary">
+		<div class="flex flex-col min-h-screen overflow-x-hidden">
+			<div class="dimmer"></div>
+			<header class="header bg-bgDark text-white py-[1.875rem] lg:py-[4rem] relative z-20">
+				<div class="header__container max-w-[86.25rem] px-4 mx-auto grid lg:grid-cols-[6.25rem_1fr_6.25rem] grid-cols-[3.125rem_1fr_3.125rem] gap-8 items-center">
+					<div class="header__logo-wrapper order-2 flex justify-center items-center lg:order-1 lg:inline-block">
+						<a href="index.html" class="header__logo logo">
+							<img src="img/logo.svg" alt="" class="max-w-[90px]" />
+						</a>
+					</div>
+
+					<div class="header__text text-center lg:text-xl font-normal flex gap-4 justify-center w-full order-4 lg:order-2 col-span-3 lg:col-span-1">
+						<span class="text-textLight">Trial expired in 17d 02h 37m</span>
+						<span>or</span>
+						<span class="text-accent">5 attempts left</span>
+					</div>
+					<div class="header__actives flex gap-5 items-center order-1 lg:order-3">
+						<div class="header__languages relative">
+							<button class="header__current-language hover:scale-110 transition-all">EN</button>
+							<!-- add class 'flex' for show -->
+							<div class="header__list-languages absolute top-[50%] lg:right-0 gap-3 bg-[#e1e8fb16] p-2 rounded-lg translate-y-[-50%] hidden">
+								<a href="#" class="header__list-languages-item text-accent">EN</a>
+								<a href="#" class="header__list-languages-item">RU</a>
+							</div>
+						</div>
+						<div class="header__search hidden lg:block">
+							<button class="header__button-search hover:scale-110 transition-all">
+								<img width="24px" height="24px" src="img/icons/search.svg" alt="" class="max-w-[1.5rem]" />
+							</button>
+							<!-- add class 'flex' for show -->
+							<div class="header__area-search fixed top-0 left-0 w-full h-32 bg-bgDark p-4 items-center hidden">
+								<form action="" class="w-full max-w-[550px] mx-auto flex gap-4">
+									<input
+										type="search"
+										name="search"
+										class="block w-full rounded border-0 py-1.5 px-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+										placeholder="Let start search..." />
+									<button type="submit" class="button button--red">Search</button>
+								</form>
+							</div>
+						</div>
+					</div>
+					<button class="header__burger icon-menu lg:hidden order-3"><span></span></button>
+				</div>
+			</header>
+			<main class="page flex-grow pt-8 pb-12 lg:pt-12 lg:pb-14">
+				<div class="max-w-[86.25rem] px-3 lg:px-4 mx-auto lg:flex lg:gap-4">
+					<aside class="sidebar max-w-[21.875rem] bg-bgSecondary py-2 rounded lg:max-w-[27.9rem] fixed lg:relative overflow-y-auto lg:overflow-y-visible z-50 w-full lg:self-start">
+						<nav class="sidebar__nav">
+							<ul class="sidebar__nav-list flex flex-col gap-1">
+								<li class="sidebar__nav-list-item _opened">
+									<div class="sidebar__button button-sidebar flex items-center gap-2 rounded bg-[#ffffff7d] pl-4 pr-8 py-3 text-textSecondary cursor-pointer">
+										<svg class="button-sidebar__icon w-[24px] h-[24px] flex items-center justify-center lex-shrink-0">
+											<use xlink:href="img/sprite.svg#football"></use>
+										</svg>
+										<div class="flex-grow">
+											<a href="#" class="button-sidebar__link font-medium text-[1.375rem]">Football</a>
+										</div>
+										<span class="button-sidebar__arrow _icon-arrow text-[9px] flex-shrink-0"></span>
+									</div>
+									<div class="sidebar__item-content text-[#000000cc] pl-4 pr-10 pt-1 pb-4 text-[1.25rem] hidden">
+										<div class="flex flex-col gap-2">
+											<a href="#" class="flex gap-2 link">
+												<span class="flex-grow">UEFA Champions League</span>
+												<span class="font-light flex-shrink-0">8</span>
+											</a>
+											<a href="#" class="flex gap-2 link">
+												<span class="flex-grow">Russia. Premier League</span>
+												<span class="font-light flex-shrink-0">8</span>
+											</a>
+											<a href="#" class="flex gap-2 link">
+												<span class="flex-grow">UEFA Champions League</span>
+												<span class="font-light flex-shrink-0">8</span>
+											</a>
+											<a href="#" class="flex gap-2 link">
+												<span class="flex-grow">Russia. Premier League</span>
+												<span class="font-light flex-shrink-0">8</span>
+											</a>
+										</div>
+									</div>
+								</li>
+								<li class="sidebar__nav-list-item">
+									<div class="sidebar__button button-sidebar flex items-center gap-2 rounded bg-[#ffffff7d] pl-4 pr-8 py-3 text-textSecondary cursor-pointer">
+										<svg class="button-sidebar__icon w-[24px] h-[24px] flex items-center justify-center lex-shrink-0">
+											<use xlink:href="img/sprite.svg#hockey"></use>
+										</svg>
+										<div class="flex-grow">
+											<a href="#" class="button-sidebar__link font-medium text-[1.375rem]">Hockey</a>
+										</div>
+										<span class="button-sidebar__arrow _icon-arrow text-[9px] flex-shrink-0"></span>
+									</div>
+									<div class="sidebar__item-content text-[#000000cc] pl-4 pr-10 pt-1 pb-4 text-[1.25rem] hidden">
+										<div class="flex flex-col gap-2">
+											<a href="#" class="flex gap-2 link">
+												<span class="flex-grow">UEFA Champions League</span>
+												<span class="font-light flex-shrink-0">8</span>
+											</a>
+											<a href="#" class="flex gap-2">
+												<span class="flex-grow">Russia. Premier League</span>
+												<span class="font-light flex-shrink-0">8</span>
+											</a>
+											<a href="#" class="flex gap-2">
+												<span class="flex-grow">UEFA Champions League</span>
+												<span class="font-light flex-shrink-0">8</span>
+											</a>
+											<a href="#" class="flex gap-2">
+												<span class="flex-grow">Russia. Premier League</span>
+												<span class="font-light flex-shrink-0">8</span>
+											</a>
+										</div>
+									</div>
+								</li>
+								<li class="sidebar__nav-list-item">
+									<div class="sidebar__button button-sidebar flex items-center gap-2 rounded bg-[#ffffff7d] pl-4 pr-8 py-3 text-textSecondary cursor-pointer">
+										<svg class="button-sidebar__icon w-[24px] h-[24px] flex items-center justify-center lex-shrink-0">
+											<use xlink:href="img/sprite.svg#tennis"></use>
+										</svg>
+										<div class="flex-grow">
+											<a href="#" class="button-sidebar__link font-medium text-[1.375rem]">Tennis</a>
+										</div>
+										<span class="button-sidebar__arrow _icon-arrow text-[9px] flex-shrink-0"></span>
+									</div>
+									<div class="sidebar__item-content text-[#000000cc] pl-4 pr-10 pt-1 pb-4 text-[1.25rem] hidden">
+										<div class="flex flex-col gap-2">
+											<a href="#" class="flex gap-2 link">
+												<span class="flex-grow">UEFA Champions League</span>
+												<span class="font-light flex-shrink-0">8</span>
+											</a>
+											<a href="#" class="flex gap-2">
+												<span class="flex-grow">Russia. Premier League</span>
+												<span class="font-light flex-shrink-0">8</span>
+											</a>
+											<a href="#" class="flex gap-2">
+												<span class="flex-grow">UEFA Champions League</span>
+												<span class="font-light flex-shrink-0">8</span>
+											</a>
+											<a href="#" class="flex gap-2">
+												<span class="flex-grow">Russia. Premier League</span>
+												<span class="font-light flex-shrink-0">8</span>
+											</a>
+										</div>
+									</div>
+								</li>
+								<li class="sidebar__nav-list-item">
+									<div class="sidebar__button button-sidebar flex items-center gap-2 rounded bg-[#ffffff7d] pl-4 pr-8 py-3 text-textSecondary cursor-pointer">
+										<svg class="button-sidebar__icon w-[24px] h-[24px] flex items-center justify-center lex-shrink-0">
+											<use xlink:href="img/sprite.svg#basketball"></use>
+										</svg>
+										<div class="flex-grow">
+											<a href="#" class="button-sidebar__link font-medium text-[1.375rem]">Basketball</a>
+										</div>
+										<span class="button-sidebar__arrow _icon-arrow text-[9px] flex-shrink-0"></span>
+									</div>
+									<div class="sidebar__item-content text-[#000000cc] pl-4 pr-10 pt-1 pb-4 text-[1.25rem] hidden">Empty</div>
+								</li>
+								<li class="sidebar__nav-list-item">
+									<div class="sidebar__button button-sidebar flex items-center gap-2 rounded bg-[#ffffff7d] pl-4 pr-8 py-3 text-textSecondary cursor-pointer">
+										<svg class="button-sidebar__icon w-[24px] h-[24px] flex items-center justify-center lex-shrink-0">
+											<use xlink:href="img/sprite.svg#voleyball"></use>
+										</svg>
+										<div class="flex-grow">
+											<a href="#" class="button-sidebar__link font-medium text-[1.375rem]">Volleyball</a>
+										</div>
+										<span class="button-sidebar__arrow _icon-arrow text-[9px] flex-shrink-0"></span>
+									</div>
+									<div class="sidebar__item-content text-[#000000cc] pl-4 pr-10 pt-1 pb-4 text-[1.25rem] hidden">Empty</div>
+								</li>
+								<li class="sidebar__nav-list-item">
+									<div class="sidebar__button button-sidebar flex items-center gap-2 rounded bg-[#ffffff7d] pl-4 pr-8 py-3 text-textSecondary cursor-pointer">
+										<svg class="button-sidebar__icon w-[24px] h-[24px] flex items-center justify-center lex-shrink-0">
+											<use xlink:href="img/sprite.svg#snooker"></use>
+										</svg>
+										<div class="flex-grow">
+											<a href="#" class="button-sidebar__link font-medium text-[1.375rem]">Snooker</a>
+										</div>
+										<span class="button-sidebar__arrow _icon-arrow text-[9px] flex-shrink-0"></span>
+									</div>
+									<div class="sidebar__item-content text-[#000000cc] pl-4 pr-10 pt-1 pb-4 text-[1.25rem] hidden">Empty</div>
+								</li>
+								<li class="sidebar__nav-list-item">
+									<div class="sidebar__button button-sidebar flex items-center gap-2 rounded bg-[#ffffff7d] pl-4 pr-8 py-3 text-textSecondary cursor-pointer">
+										<svg class="button-sidebar__icon w-[24px] h-[24px] flex items-center justify-center lex-shrink-0">
+											<use xlink:href="img/sprite.svg#handball"></use>
+										</svg>
+										<div class="flex-grow">
+											<a href="#" class="button-sidebar__link font-medium text-[1.375rem]">Handball</a>
+										</div>
+										<span class="button-sidebar__arrow _icon-arrow text-[9px] flex-shrink-0"></span>
+									</div>
+									<div class="sidebar__item-content text-[#000000cc] pl-4 pr-10 pt-1 pb-4 text-[1.25rem] hidden">Empty</div>
+								</li>
+								<li class="sidebar__nav-list-item">
+									<div class="sidebar__button button-sidebar flex items-center gap-2 rounded bg-[#ffffff7d] pl-4 pr-8 py-3 text-textSecondary cursor-pointer">
+										<svg class="button-sidebar__icon w-[24px] h-[24px] flex items-center justify-center lex-shrink-0">
+											<use xlink:href="img/sprite.svg#baseball"></use>
+										</svg>
+										<div class="flex-grow">
+											<a href="#" class="button-sidebar__link font-medium text-[1.375rem]">Baseball</a>
+										</div>
+										<span class="button-sidebar__arrow _icon-arrow text-[9px] flex-shrink-0"></span>
+									</div>
+									<div class="sidebar__item-content text-[#000000cc] pl-4 pr-10 pt-1 pb-4 text-[1.25rem] hidden">Empty</div>
+								</li>
+								<li class="sidebar__nav-list-item">
+									<div class="sidebar__button button-sidebar flex items-center gap-2 rounded bg-[#ffffff7d] pl-4 pr-8 py-3 text-textSecondary cursor-pointer">
+										<svg class="button-sidebar__icon w-[24px] h-[24px] flex items-center justify-center lex-shrink-0">
+											<use xlink:href="img/sprite.svg#rugby"></use>
+										</svg>
+										<div class="flex-grow">
+											<a href="#" class="button-sidebar__link font-medium text-[1.375rem]">Rugby</a>
+										</div>
+										<span class="button-sidebar__arrow _icon-arrow text-[9px] flex-shrink-0"></span>
+									</div>
+									<div class="sidebar__item-content text-[#000000cc] pl-4 pr-10 pt-1 pb-4 text-[1.25rem] hidden">Empty</div>
+								</li>
+								<li class="sidebar__nav-list-item">
+									<div class="sidebar__button button-sidebar flex items-center gap-2 rounded bg-[#ffffff7d] pl-4 pr-8 py-3 text-textSecondary cursor-pointer">
+										<svg class="button-sidebar__icon w-[24px] h-[24px] flex items-center justify-center lex-shrink-0">
+											<use xlink:href="img/sprite.svg#table-tenis"></use>
+										</svg>
+										<div class="flex-grow">
+											<a href="#" class="button-sidebar__link font-medium text-[1.375rem]">Table Tennis</a>
+										</div>
+										<span class="button-sidebar__arrow _icon-arrow text-[9px] flex-shrink-0"></span>
+									</div>
+									<div class="sidebar__item-content text-[#000000cc] pl-4 pr-10 pt-1 pb-4 text-[1.25rem] hidden">Empty</div>
+								</li>
+								<li class="sidebar__nav-list-item">
+									<div class="sidebar__button button-sidebar flex items-center gap-2 rounded bg-[#ffffff7d] pl-4 pr-8 py-3 text-textSecondary cursor-pointer">
+										<svg class="button-sidebar__icon w-[24px] h-[24px] flex items-center justify-center lex-shrink-0">
+											<use xlink:href="img/sprite.svg#simple"></use>
+										</svg>
+										<div class="flex-grow">
+											<a href="#" class="button-sidebar__link font-medium text-[1.375rem]">Beach Volleyball</a>
+										</div>
+										<span class="button-sidebar__arrow _icon-arrow text-[9px] flex-shrink-0"></span>
+									</div>
+									<div class="sidebar__item-content text-[#000000cc] pl-4 pr-10 pt-1 pb-4 text-[1.25rem] hidden">Empty</div>
+								</li>
+								<li class="sidebar__nav-list-item">
+									<div class="sidebar__button button-sidebar flex items-center gap-2 rounded bg-[#ffffff7d] pl-4 pr-8 py-3 text-textSecondary cursor-pointer">
+										<svg class="button-sidebar__icon w-[24px] h-[24px] flex items-center justify-center lex-shrink-0">
+											<use xlink:href="img/sprite.svg#american-football"></use>
+										</svg>
+										<div class="flex-grow">
+											<a href="#" class="button-sidebar__link font-medium text-[1.375rem]">American Football</a>
+										</div>
+										<span class="button-sidebar__arrow _icon-arrow text-[9px] flex-shrink-0"></span>
+									</div>
+									<div class="sidebar__item-content text-[#000000cc] pl-4 pr-10 pt-1 pb-4 text-[1.25rem] hidden">Empty</div>
+								</li>
+								<li class="sidebar__nav-list-item">
+									<div class="sidebar__button button-sidebar flex items-center gap-2 rounded bg-[#ffffff7d] pl-4 pr-8 py-3 text-textSecondary cursor-pointer">
+										<svg class="button-sidebar__icon w-[24px] h-[24px] flex items-center justify-center lex-shrink-0">
+											<use xlink:href="img/sprite.svg#simple"></use>
+										</svg>
+										<div class="flex-grow">
+											<a href="#" class="button-sidebar__link font-medium text-[1.375rem]">Futsal</a>
+										</div>
+										<span class="button-sidebar__arrow _icon-arrow text-[9px] flex-shrink-0"></span>
+									</div>
+									<div class="sidebar__item-content text-[#000000cc] pl-4 pr-10 pt-1 pb-4 text-[1.25rem] hidden">Empty</div>
+								</li>
+								<li class="sidebar__nav-list-item">
+									<div class="sidebar__button button-sidebar flex items-center gap-2 rounded bg-[#ffffff7d] pl-4 pr-8 py-3 text-textSecondary cursor-pointer">
+										<svg class="button-sidebar__icon w-[24px] h-[24px] flex items-center justify-center lex-shrink-0">
+											<use xlink:href="img/sprite.svg#badminton"></use>
+										</svg>
+										<div class="flex-grow">
+											<a href="#" class="button-sidebar__link font-medium text-[1.375rem]">Badminton</a>
+										</div>
+										<span class="button-sidebar__arrow _icon-arrow text-[9px] flex-shrink-0"></span>
+									</div>
+									<div class="sidebar__item-content text-[#000000cc] pl-4 pr-10 pt-1 pb-4 text-[1.25rem] hidden">Empty</div>
+								</li>
+								<li class="sidebar__nav-list-item">
+									<div class="sidebar__button button-sidebar flex items-center gap-2 rounded bg-[#ffffff7d] pl-4 pr-8 py-3 text-textSecondary cursor-pointer">
+										<svg class="button-sidebar__icon w-[24px] h-[24px] flex items-center justify-center lex-shrink-0">
+											<use xlink:href="img/sprite.svg#simple"></use>
+										</svg>
+										<div class="flex-grow">
+											<a href="#" class="button-sidebar__link font-medium text-[1.375rem]">Darts</a>
+										</div>
+										<span class="button-sidebar__arrow _icon-arrow text-[9px] flex-shrink-0"></span>
+									</div>
+									<div class="sidebar__item-content text-[#000000cc] pl-4 pr-10 pt-1 pb-4 text-[1.25rem] hidden">Empty</div>
+								</li>
+								<li class="sidebar__nav-list-item">
+									<div class="sidebar__button button-sidebar flex items-center gap-2 rounded bg-[#ffffff7d] pl-4 pr-8 py-3 text-textSecondary cursor-pointer">
+										<svg class="button-sidebar__icon w-[24px] h-[24px] flex items-center justify-center lex-shrink-0">
+											<use xlink:href="img/sprite.svg#simple"></use>
+										</svg>
+										<div class="flex-grow">
+											<a href="#" class="button-sidebar__link font-medium text-[1.375rem]">Australian Rules</a>
+										</div>
+										<span class="button-sidebar__arrow _icon-arrow text-[9px] flex-shrink-0"></span>
+									</div>
+									<div class="sidebar__item-content text-[#000000cc] pl-4 pr-10 pt-1 pb-4 text-[1.25rem] hidden">Empty</div>
+								</li>
+								<li class="sidebar__nav-list-item">
+									<div class="sidebar__button button-sidebar flex items-center gap-2 rounded bg-[#ffffff7d] pl-4 pr-8 py-3 text-textSecondary cursor-pointer">
+										<svg class="button-sidebar__icon w-[24px] h-[24px] flex items-center justify-center lex-shrink-0">
+											<use xlink:href="img/sprite.svg#esports"></use>
+										</svg>
+										<div class="flex-grow">
+											<a href="#" class="button-sidebar__link font-medium text-[1.375rem]">ESports</a>
+										</div>
+										<span class="button-sidebar__arrow _icon-arrow text-[9px] flex-shrink-0"></span>
+									</div>
+									<div class="sidebar__item-content text-[#000000cc] pl-4 pr-10 pt-1 pb-4 text-[1.25rem] hidden">Empty</div>
+								</li>
+								<li class="sidebar__nav-list-item">
+									<div class="sidebar__button button-sidebar flex items-center gap-2 rounded bg-[#ffffff7d] pl-4 pr-8 py-3 text-textSecondary cursor-pointer">
+										<svg class="button-sidebar__icon w-[24px] h-[24px] flex items-center justify-center lex-shrink-0">
+											<use xlink:href="img/sprite.svg#cricket"></use>
+										</svg>
+										<div class="flex-grow">
+											<a href="#" class="button-sidebar__link font-medium text-[1.375rem]">Cricket</a>
+										</div>
+										<span class="button-sidebar__arrow _icon-arrow text-[9px] flex-shrink-0"></span>
+									</div>
+									<div class="sidebar__item-content text-[#000000cc] pl-4 pr-10 pt-1 pb-4 text-[1.25rem] hidden">Empty</div>
+								</li>
+							</ul>
+						</nav>
+					</aside>
+					<div class="content lg:flex-grow">
+						<nav class="filters overflow-x-auto mb-10">
+							<ul class="filters__list flex gap-4">
+								<li class="filters__item">
+									<a href="#" class="filters__button button button--red">All</a>
+								</li>
+								<li class="filters__item">
+									<a href="#" class="filters__button button">LIVE</a>
+								</li>
+								<li class="filters__item">
+									<a href="#" class="filters__button button">Soon</a>
+								</li>
+								<li class="filters__item">
+									<a href="#" class="filters__button button">Tomorrow</a>
+								</li>
+							</ul>
+						</nav>
+						<div class="[&:not(:last-child)]:mb-8 lg:bg-bgSecondary lg:p-8 lg:rounded">
+							<h2 class="title text-xl font-semibold mb-5 text-accent lg:text-textPrimary">Live Football Streams</h2>
+							<div class="streams [&:not(:last-child)]:mb-5">
+								<h3 class="streams__label text-[1.2rem] mb-3 text-textSecondary">Spain. La Liga</h3>
+								<ul class="streams__list flex flex-col gap-3">
+									<li class="streams__list-item">
+										<div class="stream bg-bgWhite py-2.5 px-6 flex items-center gap-3 justify-between">
+											<time class="stream__time opacity-50" datetime="20:15"> 20:15 </time>
+											<a href="#" class="stream__commands link">
+												<h4 class="stream__command">Mallorca</h4>
+												<h4 class="stream__command">Villarreal</h4>
+											</a>
+											<div class="stream__socials flex gap-3 items-center">
+												<a href="#" class="stream__social">
+													<img src="img/locator.svg" alt="" class="w-4 hover:scale-125 transition-all" />
+												</a>
+												<a href="#" class="stream__social">
+													<img src="img/youtube.svg" alt="" class="w-4 hover:scale-125 transition-all" />
+												</a>
+												<a href="#" class="stream__social">
+													<img src="img/twitch.svg" alt="" class="w-4 hover:scale-125 transition-all" />
+												</a>
+											</div>
+											<a href="#" class="stream__play w-4">
+												<img src="img/icons/play.svg" alt="" class="w-3 hover:scale-125 transition-all" />
+											</a>
+										</div>
+									</li>
+									<li class="streams__list-item">
+										<div class="stream bg-bgWhite py-2.5 px-6 flex items-center gap-3 justify-between">
+											<time class="stream__time opacity-50" datetime="20:15"> 20:15 </time>
+											<a href="#" class="stream__commands link">
+												<h4 class="stream__command">Mallorca</h4>
+												<h4 class="stream__command">Villarreal</h4>
+											</a>
+											<div class="stream__socials flex gap-3 items-center">
+												<a href="#" class="stream__social">
+													<img src="img/locator.svg" alt="" class="w-4 hover:scale-125 transition-all" />
+												</a>
+												<a href="#" class="stream__social">
+													<img src="img/youtube.svg" alt="" class="w-4 hover:scale-125 transition-all" />
+												</a>
+												<a href="#" class="stream__social">
+													<img src="img/twitch.svg" alt="" class="w-4 hover:scale-125 transition-all" />
+												</a>
+											</div>
+											<a href="#" class="stream__play w-4">
+												<img src="img/icons/play.svg" alt="" class="w-3 hover:scale-125 transition-all" />
+											</a>
+										</div>
+									</li>
+									<li class="streams__list-item">
+										<div class="stream bg-bgWhite py-2.5 px-6 flex items-center gap-3 justify-between">
+											<time class="stream__time opacity-50" datetime="20:15"> 20:15 </time>
+											<a href="#" class="stream__commands link">
+												<h4 class="stream__command">Mallorca</h4>
+												<h4 class="stream__command">Villarreal</h4>
+											</a>
+											<div class="stream__socials flex gap-3 items-center">
+												<a href="#" class="stream__social">
+													<img src="img/locator.svg" alt="" class="w-4 hover:scale-125 transition-all" />
+												</a>
+												<a href="#" class="stream__social">
+													<img src="img/youtube.svg" alt="" class="w-4 hover:scale-125 transition-all" />
+												</a>
+												<a href="#" class="stream__social">
+													<img src="img/twitch.svg" alt="" class="w-4 hover:scale-125 transition-all" />
+												</a>
+											</div>
+											<a href="#" class="stream__play w-4">
+												<img src="img/icons/play.svg" alt="" class="w-3 hover:scale-125 transition-all" />
+											</a>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="streams [&:not(:last-child)]:mb-5">
+								<h3 class="streams__label text-[1.2rem] mb-3 text-textSecondary">Spain. La Liga</h3>
+								<ul class="streams__list flex flex-col gap-3">
+									<li class="streams__list-item">
+										<div class="stream bg-bgWhite py-2.5 px-6 flex items-center gap-3 justify-between">
+											<time class="stream__time opacity-50" datetime="20:15"> 20:15 </time>
+											<a href="#" class="stream__commands link">
+												<h4 class="stream__command">Mallorca</h4>
+												<h4 class="stream__command">Villarreal</h4>
+											</a>
+											<div class="stream__socials flex gap-3 items-center">
+												<a href="#" class="stream__social">
+													<img src="img/locator.svg" alt="" class="w-4 hover:scale-125 transition-all" />
+												</a>
+												<a href="#" class="stream__social">
+													<img src="img/youtube.svg" alt="" class="w-4 hover:scale-125 transition-all" />
+												</a>
+												<a href="#" class="stream__social">
+													<img src="img/twitch.svg" alt="" class="w-4 hover:scale-125 transition-all" />
+												</a>
+											</div>
+											<a href="#" class="stream__play w-4">
+												<img src="img/icons/play.svg" alt="" class="w-3 hover:scale-125 transition-all" />
+											</a>
+										</div>
+									</li>
+									<li class="streams__list-item">
+										<div class="stream bg-bgWhite py-2.5 px-6 flex items-center gap-3 justify-between">
+											<time class="stream__time opacity-50" datetime="20:15"> 20:15 </time>
+											<a href="#" class="stream__commands link">
+												<h4 class="stream__command">Mallorca</h4>
+												<h4 class="stream__command">Villarreal</h4>
+											</a>
+											<div class="stream__socials flex gap-3 items-center">
+												<a href="#" class="stream__social">
+													<img src="img/locator.svg" alt="" class="w-4 hover:scale-125 transition-all" />
+												</a>
+												<a href="#" class="stream__social">
+													<img src="img/youtube.svg" alt="" class="w-4 hover:scale-125 transition-all" />
+												</a>
+												<a href="#" class="stream__social">
+													<img src="img/twitch.svg" alt="" class="w-4 hover:scale-125 transition-all" />
+												</a>
+											</div>
+											<a href="#" class="stream__play w-4">
+												<img src="img/icons/play.svg" alt="" class="w-3 hover:scale-125 transition-all" />
+											</a>
+										</div>
+									</li>
+									<li class="streams__list-item">
+										<div class="stream bg-bgWhite py-2.5 px-6 flex items-center gap-3 justify-between">
+											<time class="stream__time opacity-50" datetime="20:15"> 20:15 </time>
+											<a href="#" class="stream__commands link">
+												<h4 class="stream__command">Mallorca</h4>
+												<h4 class="stream__command">Villarreal</h4>
+											</a>
+											<div class="stream__socials flex gap-3 items-center">
+												<a href="#" class="stream__social">
+													<img src="img/locator.svg" alt="" class="w-4 hover:scale-125 transition-all" />
+												</a>
+												<a href="#" class="stream__social">
+													<img src="img/youtube.svg" alt="" class="w-4 hover:scale-125 transition-all" />
+												</a>
+												<a href="#" class="stream__social">
+													<img src="img/twitch.svg" alt="" class="w-4 hover:scale-125 transition-all" />
+												</a>
+											</div>
+											<a href="#" class="stream__play w-4">
+												<img src="img/icons/play.svg" alt="" class="w-3 hover:scale-125 transition-all" />
+											</a>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="[&:not(:last-child)]:mb-8 lg:bg-bgSecondary lg:p-8 lg:rounded">
+							<h2 class="title text-xl font-semibold mb-5 text-accent lg:text-textPrimary">Basketball</h2>
+							<div class="streams [&:not(:last-child)]:mb-5">
+								<h3 class="streams__label text-[1.2rem] mb-3 text-textSecondary">Spain. La Liga</h3>
+								<ul class="streams__list flex flex-col gap-3">
+									<li class="streams__list-item">
+										<div class="stream bg-bgWhite py-2.5 px-6 flex items-center gap-3 justify-between">
+											<time class="stream__time opacity-50" datetime="20:15"> 20:15 </time>
+											<a href="#" class="stream__commands link">
+												<h4 class="stream__command">Mallorca</h4>
+												<h4 class="stream__command">Villarreal</h4>
+											</a>
+											<div class="stream__socials flex gap-3 items-center">
+												<a href="#" class="stream__social">
+													<img src="img/locator.svg" alt="" class="w-4 hover:scale-125 transition-all" />
+												</a>
+												<a href="#" class="stream__social">
+													<img src="img/youtube.svg" alt="" class="w-4 hover:scale-125 transition-all" />
+												</a>
+												<a href="#" class="stream__social">
+													<img src="img/twitch.svg" alt="" class="w-4 hover:scale-125 transition-all" />
+												</a>
+											</div>
+											<a href="#" class="stream__play w-4">
+												<img src="img/icons/play.svg" alt="" class="w-3 hover:scale-125 transition-all" />
+											</a>
+										</div>
+									</li>
+									<li class="streams__list-item">
+										<div class="stream bg-bgWhite py-2.5 px-6 flex items-center gap-3 justify-between">
+											<time class="stream__time opacity-50" datetime="20:15"> 20:15 </time>
+											<a href="#" class="stream__commands link">
+												<h4 class="stream__command">Mallorca</h4>
+												<h4 class="stream__command">Villarreal</h4>
+											</a>
+											<div class="stream__socials flex gap-3 items-center">
+												<a href="#" class="stream__social">
+													<img src="img/locator.svg" alt="" class="w-4 hover:scale-125 transition-all" />
+												</a>
+												<a href="#" class="stream__social">
+													<img src="img/youtube.svg" alt="" class="w-4 hover:scale-125 transition-all" />
+												</a>
+												<a href="#" class="stream__social">
+													<img src="img/twitch.svg" alt="" class="w-4 hover:scale-125 transition-all" />
+												</a>
+											</div>
+											<a href="#" class="stream__play w-4">
+												<img src="img/icons/play.svg" alt="" class="w-3 hover:scale-125 transition-all" />
+											</a>
+										</div>
+									</li>
+									<li class="streams__list-item">
+										<div class="stream bg-bgWhite py-2.5 px-6 flex items-center gap-3 justify-between">
+											<time class="stream__time opacity-50" datetime="20:15"> 20:15 </time>
+											<a href="#" class="stream__commands link">
+												<h4 class="stream__command">Mallorca</h4>
+												<h4 class="stream__command">Villarreal</h4>
+											</a>
+											<div class="stream__socials flex gap-3 items-center">
+												<a href="#" class="stream__social">
+													<img src="img/locator.svg" alt="" class="w-4 hover:scale-125 transition-all" />
+												</a>
+												<a href="#" class="stream__social">
+													<img src="img/youtube.svg" alt="" class="w-4 hover:scale-125 transition-all" />
+												</a>
+												<a href="#" class="stream__social">
+													<img src="img/twitch.svg" alt="" class="w-4 hover:scale-125 transition-all" />
+												</a>
+											</div>
+											<a href="#" class="stream__play w-4">
+												<img src="img/icons/play.svg" alt="" class="w-3 hover:scale-125 transition-all" />
+											</a>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="streams [&:not(:last-child)]:mb-5">
+								<h3 class="streams__label text-[1.2rem] mb-3 text-textSecondary">Spain. La Liga</h3>
+								<ul class="streams__list flex flex-col gap-3">
+									<li class="streams__list-item">
+										<div class="stream bg-bgWhite py-2.5 px-6 flex items-center gap-3 justify-between">
+											<time class="stream__time opacity-50" datetime="20:15"> 20:15 </time>
+											<a href="#" class="stream__commands link">
+												<h4 class="stream__command">Mallorca</h4>
+												<h4 class="stream__command">Villarreal</h4>
+											</a>
+											<div class="stream__socials flex gap-3 items-center">
+												<a href="#" class="stream__social">
+													<img src="img/locator.svg" alt="" class="w-4 hover:scale-125 transition-all" />
+												</a>
+												<a href="#" class="stream__social">
+													<img src="img/youtube.svg" alt="" class="w-4 hover:scale-125 transition-all" />
+												</a>
+												<a href="#" class="stream__social">
+													<img src="img/twitch.svg" alt="" class="w-4 hover:scale-125 transition-all" />
+												</a>
+											</div>
+											<a href="#" class="stream__play w-4">
+												<img src="img/icons/play.svg" alt="" class="w-3 hover:scale-125 transition-all" />
+											</a>
+										</div>
+									</li>
+									<li class="streams__list-item">
+										<div class="stream bg-bgWhite py-2.5 px-6 flex items-center gap-3 justify-between">
+											<time class="stream__time opacity-50" datetime="20:15"> 20:15 </time>
+											<a href="#" class="stream__commands link">
+												<h4 class="stream__command">Mallorca</h4>
+												<h4 class="stream__command">Villarreal</h4>
+											</a>
+											<div class="stream__socials flex gap-3 items-center">
+												<a href="#" class="stream__social">
+													<img src="img/locator.svg" alt="" class="w-4 hover:scale-125 transition-all" />
+												</a>
+												<a href="#" class="stream__social">
+													<img src="img/youtube.svg" alt="" class="w-4 hover:scale-125 transition-all" />
+												</a>
+												<a href="#" class="stream__social">
+													<img src="img/twitch.svg" alt="" class="w-4 hover:scale-125 transition-all" />
+												</a>
+											</div>
+											<a href="#" class="stream__play w-4">
+												<img src="img/icons/play.svg" alt="" class="w-3 hover:scale-125 transition-all" />
+											</a>
+										</div>
+									</li>
+									<li class="streams__list-item">
+										<div class="stream bg-bgWhite py-2.5 px-6 flex items-center gap-3 justify-between">
+											<time class="stream__time opacity-50" datetime="20:15"> 20:15 </time>
+											<a href="#" class="stream__commands link">
+												<h4 class="stream__command">Mallorca</h4>
+												<h4 class="stream__command">Villarreal</h4>
+											</a>
+											<div class="stream__socials flex gap-3 items-center">
+												<a href="#" class="stream__social">
+													<img src="img/locator.svg" alt="" class="w-4 hover:scale-125 transition-all" />
+												</a>
+												<a href="#" class="stream__social">
+													<img src="img/youtube.svg" alt="" class="w-4 hover:scale-125 transition-all" />
+												</a>
+												<a href="#" class="stream__social">
+													<img src="img/twitch.svg" alt="" class="w-4 hover:scale-125 transition-all" />
+												</a>
+											</div>
+											<a href="#" class="stream__play w-4">
+												<img src="img/icons/play.svg" alt="" class="w-3 hover:scale-125 transition-all" />
+											</a>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+			<footer class="footer bg-bgDark text-textLight py-[2rem]">
+				<div class="footer__container max-w-[86.25rem] px-4 mx-auto flex flex-col gap-5 lg:grid lg:grid-cols-3">
+					<div class="footer__logo-wrapper lg:self-center">
+						<a href="index.html" class="footer__logo logo">
+							<img src="img/logo.svg" alt="" class="max-w-[90px]" />
+						</a>
+					</div>
+					<nav class="footer__part max-w-[25.75rem]">
+						<h3 class="footer__label mb-6 text-sm">Streaming</h3>
+						<ul class="footer__list flex gap-x-5 gap-y-3 flex-wrap">
+							<li class="footer__list-item">
+								<a href="#" class="footer__link link">Football</a>
+							</li>
+							<li class="footer__list-item">
+								<a href="#" class="footer__link link">Basketball</a>
+							</li>
+							<li class="footer__list-item">
+								<a href="#" class="footer__link link">Baseball</a>
+							</li>
+							<li class="footer__list-item">
+								<a href="#" class="footer__link link">Tennis</a>
+							</li>
+							<li class="footer__list-item">
+								<a href="#" class="footer__link link">Hockey</a>
+							</li>
+							<li class="footer__list-item">
+								<a href="#" class="footer__link link">Volleybal</a>
+							</li>
+							<li class="footer__list-item">
+								<a href="#" class="footer__link link">Rugby</a>
+							</li>
+							<li class="footer__list-item">
+								<a href="#" class="footer__link link">Snooker</a>
+							</li>
+						</ul>
+					</nav>
+					<div class="footer__part lg:ml-auto">
+						<h3 class="footer__label mb-6 text-sm">Additionally</h3>
+						<ul class="footer__list">
+							<li class="footer__list-item">
+								<div class="footer__list-label mb-2">Support</div>
+								<div>Email : <a href="mailto:admin@logo.live" class="footer__link link">admin@logo.live</a></div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</footer>
+		</div>
+		<script src="js/script.js"></script>
+	</body>
+</html>
