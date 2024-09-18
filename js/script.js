@@ -51,7 +51,7 @@ function initLanguages() {
 	});
 }
 
-function initTimer() {
+function initTimer(timerId) {
 	function convertMilliseconds(ms) {
 		const days = Math.floor(ms / (24 * 60 * 60 * 1000));
 		const hours = Math.floor((ms % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000));
@@ -75,15 +75,15 @@ function initTimer() {
 		minutesElem.textContent = minutes < 10 ? '0' + minutes : minutes;
 	}
 
-	const timer = document.querySelector('#timer');
+	const timer = document.querySelector(timerId);
 
 	if (!timer) return;
 
 	const timerValue = timer.dataset.time;
 
-	const daysElem = document.querySelector('.timer__days');
-	const hoursElem = document.querySelector('.timer__hours');
-	const minutesElem = document.querySelector('.timer__minutes');
+	const daysElem = timer.querySelector('[data-timer-days]');
+	const hoursElem = timer.querySelector('[data-timer-hours]');
+	const minutesElem = timer.querySelector('[data-timer-minutes]');
 
 	if (!daysElem || !hoursElem || !minutesElem) return;
 
@@ -101,7 +101,8 @@ function initApp() {
 
 	initLanguages();
 
-	initTimer();
+	initTimer('#timer');
+	initTimer('#headerTimer');
 }
 
 document.addEventListener('DOMContentLoaded', initApp);
